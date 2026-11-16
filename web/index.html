@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Iris</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <div class="brand"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M2 12c2.6-4.6 6-7 10-7s7.4 2.4 10 7c-2.6 4.6-6 7-10 7S4.6 16.6 2 12Z" stroke="#fff" stroke-width="1.8"/><circle cx="12" cy="12" r="4.4" stroke="#fff" stroke-width="1.8"/><circle cx="12" cy="12" r="1.7" fill="#fff"/></svg></span>Iris<small>sight for the path ahead</small></div>
+  <span class="chip"><span class="dot" id="livedot"></span><span id="src">connecting…</span></span>
+  <span class="chip" id="fps">– fps</span>
+  <span class="chip" id="mutechip" hidden>Voice muted</span>
+  <span class="spacer"></span>
+  <a class="navlink" href="/caregiver">Caregiver view →</a>
+</header>
+<div id="emergency" role="alert">STOP — obstacle directly ahead</div>
+<div id="sosbanner" role="alert" hidden><span id="sostext">SOS</span><button id="okbtn">I'm okay <kbd>O</kbd></button></div>
+
+<main>
+  <div class="col">
+    <section class="card" aria-label="Live view">
+      <h2>What the glasses see</h2>
+      <div class="viewwrap" id="viewwrap">
+        <img id="view" src="/stream.mjpg" alt="Live glasses camera with depth heatmap and zone bars">
+        <span class="overlay-tag">LIVE · depth from one camera</span>
+        <span class="legend">far <i></i> near</span>
+        <div class="subtitle" id="subtitle" aria-live="assertive"></div>
+      </div>
+    </section>
+    <section class="card">
+      <h2>Spoken guidance</h2>
+      <ul id="log" aria-live="polite"></ul>
+    </section>
+  </div>
+
+  <div class="col">
+    <section class="card hero" aria-label="Path">
+      <h2>Path</h2>
+      <svg class="radar" id="radar" viewBox="0 0 400 230" role="img" aria-label="Top-down view of left, center and right paths"></svg>
+      <div class="dir" id="dir">—</div>
+      <div class="dirsub" id="dirsub"></div>
+      <div class="zonerow" id="zones"></div>
+    </section>
+
+    <section class="card objs-card">
+      <h2>Objects in view</h2>
+      <div class="chips" id="objs"><span class="empty">None detected</span></div>
+    </section>
+
+    <section class="card controls-card">
+      <h2>Controls</h2>
+      <div class="controls">
+        <button class="primary" id="bd">Describe scene <kbd>D</kbd></button>
+        <button class="primary" id="br">Read text <kbd>R</kbd></button>
+        <button class="primary" id="bc">What color? <kbd>C</kbd></button>
+        <button class="danger" id="bs">SOS <kbd>H</kbd></button>
+        <button id="bl">Voice commands: off <kbd>V</kbd></button>
+        <button id="bw">Fall check: off <kbd>F</kbd></button>
+        <button id="bm" class="span2">Mute voice <kbd>M</kbd></button>
+      </div>
+      <div class="hint" id="hint">Say "Iris, read this" · "what's ahead" · "what color" · "help" · "I'm okay"</div>
+      <div class="descbox" id="desc">Describe summarises what's ahead. Read text reads signs and labels in view.</div>
+    </section>
+  </div>
+</main>
+<footer><span class="safety">Prototype. Not a mobility aid replacement: keep using your cane or guide dog.</span><span>Depth Anything V2 · MediaPipe · runs on this laptop</span></footer>
+<script src="/app.js"></script>
+</body>
+</html>

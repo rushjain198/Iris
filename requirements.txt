@@ -1,0 +1,9 @@
+# Iris (Python 3.12, macOS on Apple silicon)
+numpy==2.5.4
+opencv-python==5.0.0.93
+mediapipe==0.10.14
+onnxruntime==1.32.0
+pyserial==3.5
+pyobjc-framework-Vision==13.0
+pyobjc-framework-Quartz==13.0
+pillow==13.0.0

@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+models/*.onnx
+models/*.tflite
+models/*.part
+tests/_*.png
+.DS_Store
+*.mp4
+*.mov
